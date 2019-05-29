@@ -1,0 +1,13 @@
+<header>
+  <%= link_to "My Site", root_path, id: "logo"%>
+</header>
+
+
+<nav>
+  <ul>
+    <li><%= link_to "My Noteについて？", about_path %></li>
+    <li><%= link_to "新規登録", signup_path %></li>
+    <li><%= link_to "ログイン", login_path %></li>
+    <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
+  </ul>
+</nav>

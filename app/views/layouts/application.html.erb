@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>My Note</title>
+  <%= render 'layouts/head_config' %>
+  <%= render 'layouts/rails_default' %>
+  <%= render 'layouts/shim' %>
+</head>
+<body>
+
+<%= render 'layouts/header' %>
+<% flash.each do |message_type, message| %>
+<div>
+  <%= message_type %><%= message %>
+</div>
+<% end %>
+
+<%= yield %>
+
+<%= render 'layouts/footer' %>
+
+
+
+</body>
+</html>
