@@ -1,0 +1,16 @@
+// Place all the styles related to the Articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  display: grid;
+  grid-template-columns: 20px 1fr 20px;
+  grid-template-rows:
+          [head] auto
+          [main] auto
+          [kiji] auto
+          [foot] auto;
+  font-family: Sans-Serif;
+}
+
+

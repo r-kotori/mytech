@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+
+  get 'articles/new'
+
+  get 'articles/create'
+
+  get 'articles/destroy'
+
   root 'static_pages#home'
   get '/service', to: 'static_pages#service'
   get '/policy', to: 'static_pages#policy'
@@ -12,5 +19,10 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+
+  get '/articleup', to: 'articles#new'
+  post '/articleup', to: 'articles#create'
+
   resources :users
+  resources :articles, only:[:new, :create, :destroy]
 end

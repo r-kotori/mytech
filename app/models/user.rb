@@ -1,4 +1,22 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  email           :string
+#  name            :string
+#  password_digest :string
+#  remember_digest :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+# Indexes
+#
+#  index_users_on_email  (email) UNIQUE
+#
+
 class User < ApplicationRecord
+  has_many :articles, dependent: :destroy
   attr_accessor :remember_token
   before_save { email.downcase! }
   validates :name, presence: true, length: { maximum: 50}
