@@ -17,6 +17,7 @@
 #
 
 class Article < ApplicationRecord
+  has_many :calendar, dependent: :destroy
   belongs_to :user, optional: true
   validates :user_id, presence: true
   validates :topic, presence: true

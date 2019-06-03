@@ -16,6 +16,7 @@
 #
 
 class User < ApplicationRecord
+  has_many :calendars, dependent: :destroy
   has_many :articles, dependent: :destroy
   attr_accessor :remember_token
   before_save { email.downcase! }

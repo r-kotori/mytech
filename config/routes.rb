@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'articles/new'
-
-  get 'articles/create'
-
-  get 'articles/destroy'
-
   root 'static_pages#home'
   get '/service', to: 'static_pages#service'
   get '/policy', to: 'static_pages#policy'
@@ -22,6 +16,8 @@ Rails.application.routes.draw do
 
   get '/articleup', to: 'articles#new'
   post '/articleup', to: 'articles#create'
+
+  get '/calendar', to: 'calendars#index'
 
   resources :users
   resources :articles, only:[:new, :create, :destroy]

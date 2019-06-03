@@ -12,28 +12,26 @@
   <thead class="thead-dark">
   <tr>
     <th>ID</th>
+    <th>トピック</th>
     <th>タイトル</th>
-    <th>作成者</th>
-    <th>作成日時</th>
-    <th>更新日時</th>
+    <th>学習時間</th>
+    <th>学習内容</th>
   </tr>
   </thead>
   <tbody>
+  <% @article.each do |ati| %>
   <tr>
-    <th>1</th>
-    <td>雑談掲示板</td>
-    <td>Taro</td>
-    <td>2018年4月1日</td>
-    <td>2018年4月15日</td>
+    <th><%= ati.id %></th>
+    <td><%= ati.topic %></td>
+    <td><%= ati.title %></td>
+    <td><%= ati.study_time %></td>
+    <td><%= ati.content %></td>
   </tr>
-  <tr>
-    <th>2</th>
-    <td>雑談掲示板2</td>
-    <td>Ken</td>
-    <td>2018年4月1日</td>
-    <td>2018年4月15日</td>
-  </tr>
+    <% end %>
   </tbody>
 </table>
+
+  <div id="calendar"></div>
+
 </div>
 
