@@ -1,5 +1,8 @@
 {
   "name": "mysite",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    " chart.js": "^2.7.1"
+  }
 }
+
