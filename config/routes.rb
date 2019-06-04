@@ -17,7 +17,6 @@ Rails.application.routes.draw do
   get '/articleup', to: 'articles#new'
   post '/articleup', to: 'articles#create'
 
-  get '/calendar', to: 'calendars#index'
 
   resources :users
   resources :articles, only:[:new, :create, :destroy]

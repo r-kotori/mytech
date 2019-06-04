@@ -8,6 +8,7 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     @article.user_id = current_user.id
+    @article.start_time = DateTime.now
     if @article.save
       flash[:success] = "記事を投稿しました"
       redirect_to @current_user

@@ -19,19 +19,28 @@
   </tr>
   </thead>
   <tbody>
-  <% @article.each do |ati| %>
+  <% @articles.each do |ati1| %>
   <tr>
-    <th><%= ati.id %></th>
-    <td><%= ati.topic %></td>
-    <td><%= ati.title %></td>
-    <td><%= ati.study_time %></td>
-    <td><%= ati.content %></td>
+    <th><%= ati1.id %></th>
+    <td><%= ati1.topic %></td>
+    <td><%= ati1.title %></td>
+    <td><%= ati1.study_time %></td>
+    <td><%= ati1.content %></td>
   </tr>
     <% end %>
   </tbody>
 </table>
 
-  <div id="calendar"></div>
+  <%= month_calendar events: @articles do |date, articles| %>
+    <%= date.day %>
+    <% articles.each do |article| %>
+    <div>
+      <%= link_to article.title, "#" %>
+    </div>
+    <% end %>
+
+  <% end %>
+
 
 </div>
 

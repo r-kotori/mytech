@@ -4,6 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  content    :string           not null
+#  start_time :datetime
 #  study_time :string           not null
 #  title      :string           not null
 #  topic      :string           not null
@@ -17,7 +18,6 @@
 #
 
 class Article < ApplicationRecord
-  has_many :calendar, dependent: :destroy
   belongs_to :user, optional: true
   validates :user_id, presence: true
   validates :topic, presence: true
