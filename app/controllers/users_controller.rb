@@ -5,6 +5,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @articles = Article.where(user_id: current_user)
+    user_study_time
+    user_study_topic
   end
 
   def new
@@ -41,6 +43,14 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :email,
                                    :password, :password_confirmation)
+    end
+
+    def user_study_time
+      gon.data1 = Article.pluck(:study_time).map(&:to_i)
+    end
+
+    def user_study_topic
+      gon.data2 = Article.pluck(:topic)
     end
 
 end

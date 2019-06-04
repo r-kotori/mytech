@@ -2,27 +2,23 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+
 window.draw_graph = ->
   ctx = document.getElementById("myChart").getContext('2d')
+  colorNum = gon.data1.length
+  setColors = new Array(colorNum)
+  for i in [0...colorNum]
+    setColors[i] = 'rgb(' + ~ ~(256 * Math.random()) + ', ' + ~ ~(256 * Math.random()) + ', ' + ~ ~(256 * Math.random()) + ')'
+
   myPieChart = new Chart(ctx, {
     type: 'pie',
     data: {
       datasets: [{
-        data: [10, 20, 30],
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.1)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-        ],
-        borderColor: [
-          'rgba(255,99,132,1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-        ],
+        data: gon.data1,
+        backgroundColor: setColors,
+        borderColor: setColors,
       }]
-      labels: [
-        'Red', 'Blue', 'Yellow'
-      ]
+      labels: gon.data2,
     },
     options: {}
   })

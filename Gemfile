@@ -12,6 +12,7 @@ gem 'turbolinks',   '5.0.1'
 gem 'jbuilder',     '2.7.0'
 gem 'simple_calendar', '2.0'
 gem 'chart-js-rails', '0.1.4'
+gem 'gon', '6.2.0'
 
 
 group :development, :test do
