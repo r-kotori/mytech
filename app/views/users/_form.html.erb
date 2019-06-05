@@ -1,16 +1,16 @@
 <%= form_for(@user, url: yield(:url)) do |f| %>
   <%= render 'shared/error_messages', object: @user %>
 
-  <%= f.label :名前 %>
+  <%= f.label :name %>
   <%= f.text_field :name%>
 
-  <%= f.label :メールアドレス %>
+  <%= f.label :email %>
   <%= f.email_field :email %>
 
-  <%= f.label :パスワード %>
+  <%= f.label :password %>
   <%= f.password_field :password %>
 
-  <%= f.label :確認　%>
+  <%= f.label :パスワード（確認）　%>
   <%= f.password_field :password_confirmation %>
 
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
