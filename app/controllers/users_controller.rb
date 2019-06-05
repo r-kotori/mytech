@@ -52,16 +52,19 @@ class UsersController < ApplicationController
                                    :password, :password_confirmation)
     end
 
-    def user_study_time
-      gon.data1 = Article.where(user_id:current_user).pluck(:study_time).map(&:to_i)
-    end
-
-    def user_study_topic
-      gon.data2 = Article.where(user_id:current_user).pluck(:topic)
-    end
-
     def admin_user
       redirect_to(root_url) unless current_user.admin?
     end
 
+    def user_study_time
+      sum = Article.where(user_id: current_user).group(:topic).sum(:study_time)
+      sum = sum.sort_by { |_, v | -v }.to_h
+      gon.data1 = sum.values
+    end
+
+    def user_study_topic
+      sum = Article.where(user_id: current_user).group(:topic).sum(:study_time)
+      sum = sum.sort_by { |_, v | -v }.to_h
+      gon.data2 = sum.keys
+    end
 end

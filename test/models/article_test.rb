@@ -5,7 +5,7 @@
 #  id         :integer          not null, primary key
 #  content    :string           not null
 #  start_time :datetime
-#  study_time :string           not null
+#  study_time :integer          not null
 #  title      :string           not null
 #  topic      :string           not null
 #  created_at :datetime         not null
