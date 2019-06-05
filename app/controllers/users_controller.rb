@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only:[:edit, :update]
-  before_action :correct_user, only:[:edit, :update]
+  before_action :logged_in_user, only:[:edit, :update, :destroy]
+  before_action :correct_user, only:[:edit, :update, :destroy]
+  before_action :admin_user, only: :destroy
 
   def show
     @user = User.find(params[:id])
@@ -38,6 +39,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "アカウントが削除されました"
+    redirect_to root_path
+  end
+
   private
 
     def user_params
@@ -46,11 +53,15 @@ class UsersController < ApplicationController
     end
 
     def user_study_time
-      gon.data1 = Article.pluck(:study_time).map(&:to_i)
+      gon.data1 = Article.where(user_id:current_user).pluck(:study_time).map(&:to_i)
     end
 
     def user_study_topic
-      gon.data2 = Article.pluck(:topic)
+      gon.data2 = Article.where(user_id:current_user).pluck(:topic)
+    end
+
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
     end
 
 end
