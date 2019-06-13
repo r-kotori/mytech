@@ -8,11 +8,9 @@
 
     <%= render 'form' %>
 
-    <% if current_user %>
     <div class="delete-btn">
     <%= link_to "削除", 'users#destroy', method: :delete,
                 data: { confirm: "本当に削除しますか?" },class: "btn btn-danger" %>
-    <% end %>
     </div>
   </div>
 </div>

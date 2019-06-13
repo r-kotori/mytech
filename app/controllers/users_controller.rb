@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @articles = Article.where(user_id: current_user)
+    @articles = Article.where(user_id: params[:id])
     user_study_time
     user_study_topic
   end
@@ -57,13 +57,13 @@ class UsersController < ApplicationController
     end
 
     def user_study_time
-      sum = Article.where(user_id: current_user).group(:topic).sum(:study_time)
+      sum = Article.where(user_id: params[:id]).group(:topic).sum(:study_time)
       sum = sum.sort_by { |_, v | -v }.to_h
       gon.data1 = sum.values
     end
 
     def user_study_topic
-      sum = Article.where(user_id: current_user).group(:topic).sum(:study_time)
+      sum = Article.where(user_id: params[:id]).group(:topic).sum(:study_time)
       sum = sum.sort_by { |_, v | -v }.to_h
       gon.data2 = sum.keys
     end

@@ -14,8 +14,6 @@ gem 'jbuilder',     '2.7.0'
 gem 'simple_calendar', '2.0'
 gem 'chart-js-rails', '0.1.4'
 gem 'gon', '6.2.0'
-gem 'will_paginate',           '3.0.7'
-gem 'bootstrap-will_paginate', '0.0.10'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
