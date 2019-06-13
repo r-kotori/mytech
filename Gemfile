@@ -16,6 +16,8 @@ gem 'chart-js-rails', '0.1.4'
 gem 'gon', '6.2.0'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'will_paginate', '3.1.6'
+gem 'bootstrap-will_paginate', '1.0.0'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
