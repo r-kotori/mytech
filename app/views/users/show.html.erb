@@ -1,14 +1,37 @@
 <div class="main">
-<div class="myprofiel">
-  <h1><%= @user.name %></h1>
+<div class="myprofiel_main">
+  <% if @user.image? %>
+    <%= image_tag @user.image.url %>
+    <% else %>
+    <%= image_tag("icon/no-image.png") %>
+    <% end %>
+  <h1>
+    <%= @user.name %>
+  </h1>
 </div>
 
+  <% if @articles.empty? %>
+    <div class="article_pie">
+    <a href="http://localhost:3000/articleup">
+      <h1>
+      <%= image_tag("pie.png")%>
+      記事を投稿しよう
+      </h1>
+    </a>
+    </div>
+    <% else %>
+  <div class="my_pie">
   <canvas id="myChart" width="200" height="100"></canvas>
   <script>draw_graph();</script>
+  </div>
 
-<ul class="mymenu">
-  <%= link_to "投稿", articleup_path %>
-</ul>
+    <ul class="mymenu">
+      <%= link_to "投稿", articleup_path %>
+    </ul>
+    <% end %>
+
+
+
 
 <table class="table table-hover boards__table">
   <thead class="thead-dark">

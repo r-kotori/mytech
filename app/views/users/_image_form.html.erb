@@ -1,0 +1,31 @@
+<%= form_for(@user, url: yield(:url)) do |f| %>
+  <%= render 'shared/error_messages', object: @user %>
+
+  <div class="myprofiel">
+  <div class="myprofiel_edit">
+    <% if @user.image? %>
+      <%= image_tag @user.image.url %>
+    <% else %>
+      <%= image_tag("icon/no-image.png") %><br>
+    <% end %>
+  </div>
+  <div class="myprofiel_text">
+    <%= f.label :プロフィール画像を変更 %>
+    <%= f.file_field :image %>
+  </div>
+  </div>
+
+  <%= f.label :name %>
+  <%= f.text_field :name%>
+
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.label :パスワード（確認）　%>
+  <%= f.password_field :password_confirmation %>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>

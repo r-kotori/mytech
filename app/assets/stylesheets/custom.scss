@@ -160,6 +160,42 @@ footer {
   text-align: right;
 }
 
+/* icon画像の大きさ　*/
+.myprofiel_main {
+  margin-top: 10px;
+  text-align: center;
+
+  img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.myprofiel {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.myprofiel_edit img {
+  margin-right: 20px;
+  width: 100px;
+  height: 100px;
+}
+
+.myprofiel_text {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.article_pie {
+  text-align: center;
+  img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+  }
+}
+
 
 
 

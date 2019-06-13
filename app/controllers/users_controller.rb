@@ -35,6 +35,7 @@ class UsersController < ApplicationController
       flash[:success] = "プロフィールを更新しました"
       redirect_to @user
     else
+      flach[:danger] = "プロフィールの編集に失敗しました"
       render 'edit'
     end
   end
@@ -49,7 +50,7 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:name, :email,
-                                   :password, :password_confirmation)
+                                   :password, :password_confirmation, :image)
     end
 
     def admin_user
