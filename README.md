@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+自己学習を記録するアプリケーション
 
-Things you may want to cover:
 
-* Ruby version
+* 機能一覧
+  ・認証機能
+  ・記事投稿機能
+  ・記事表示、詳細、編集、削除
+  ・記事に関連したグラフの描画機能
+  ・ページネーション機能
+  ・画像アップロード、リサイズ
 
-* System dependencies
+* アプリケーション内で使用している技術
+・仮想サーバー heroku
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
