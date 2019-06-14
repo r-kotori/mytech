@@ -36,21 +36,25 @@
 <table class="table table-hover boards__table">
   <thead class="thead-dark">
   <tr>
-    <th>ID</th>
     <th>トピック</th>
     <th>タイトル</th>
-    <th>学習時間</th>
+    <th>学習時間(分)</th>
     <th>学習内容</th>
+    <th>投稿日</th>
+    <th><i class="fas fa-edit"></i></th>
+    <th><i class="fas fa-trash-alt"></i></th>
   </tr>
   </thead>
   <tbody>
   <% @articles.each do |ati1| %>
   <tr>
-    <th><%= ati1.id %></th>
     <td><%= ati1.topic %></td>
     <td><%= ati1.title %></td>
     <td><%= ati1.study_time %></td>
-    <td><%= ati1.content %></td>
+    <td><%= link_to "詳細", "#" %></td>
+    <td><%= ati1.created_at.strftime('%Y年%m月%d日 %H時%M分') %></td>
+    <td><%= link_to "編集", "#" %></td>
+    <td><%= link_to "削除", "#" %></td>
   </tr>
     <% end %>
   </tbody>

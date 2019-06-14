@@ -1,0 +1,17 @@
+<%= form_for(@article) do |f| %>
+
+  <%= f.label :トピック %>
+  <%= f.text_field :topic %>
+
+  <%= f.label :タイトル %>
+  <%= f.text_field :title %>
+
+  <%= f.label :学習時間 %>
+  <%= f.number_field :study_time %>
+
+  <%= f.label :内容 %>
+  <%= f.text_area :content %>
+
+
+  <%= f.submit "編集する", class: "btn btn-primary" %>
+<% end %>

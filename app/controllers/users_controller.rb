@@ -43,7 +43,7 @@ class UsersController < ApplicationController
   def destroy
     User.find(params[:user_id]).destroy
     flash[:success] = "アカウントが削除されました"
-    redirect_to request.referrer || root_url
+    redirect_to root_path
   end
 
   private

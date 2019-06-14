@@ -1,0 +1,20 @@
+<div class="main">
+  <div class="article_button">
+  <button><%= link_to "戻る", user_path(@article.user_id) %></button>
+  </div>
+
+  <table class="article_detail">
+    <tr>
+      <th>トピック</th>
+      <td><%= @article.topic %></td>
+    </tr>
+    <tr>
+      <th>タイトル</th>
+      <td><%= @article.title %></td>
+    </tr>
+    <tr>
+      <th>学習内容</th>
+      <td><%= simple_format(@article.content) %></td>
+    </tr>
+  </table>
+</div>
