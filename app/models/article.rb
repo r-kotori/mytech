@@ -24,5 +24,6 @@ class Article < ApplicationRecord
   validates :study_time, presence: true
   validates :title, presence: true
   validates :content, presence: true
+
 end
 

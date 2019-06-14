@@ -19,6 +19,7 @@
 
 class User < ApplicationRecord
   has_many :articles, dependent: :destroy
+
   attr_accessor :remember_token
   mount_uploader :image, ImageUploader
   before_save { email.downcase! }
@@ -59,5 +60,4 @@ class User < ApplicationRecord
   def forget
     update_attribute(:remember_digest, nil)
   end
-
 end

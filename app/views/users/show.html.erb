@@ -49,27 +49,18 @@
   <% @articles.each do |ati1| %>
   <tr>
     <td><%= ati1.topic %></td>
-    <td><%= ati1.title %></td>
+    <td><%= ati1.title.truncate(25, omission: '...') %></td>
     <td><%= ati1.study_time %></td>
-    <td><%= link_to "詳細", "#" %></td>
-    <td><%= ati1.created_at.strftime('%Y年%m月%d日 %H時%M分') %></td>
-    <td><%= link_to "編集", "#" %></td>
-    <td><%= link_to "削除", "#" %></td>
+    <td><%= link_to "詳細", article_path(ati1.id) %></td>
+    <td><%= ati1.created_at.strftime('%Y/%m/%d %H時%M分') %></td>
+    <td><%= link_to "編集", edit_article_path(ati1.id) %></td>
+    <td><%= link_to "削除", article_path(ati1.id), method: :delete,  data: { confirm: "本当に削除しますか?" } %></td>
   </tr>
     <% end %>
   </tbody>
 </table>
-
-  <%= month_calendar events: @articles do |date, articles| %>
-    <%= date.day %>
-    <% articles.each do |article| %>
-    <div>
-      <%= link_to article.title, "#" %>
-    </div>
-    <% end %>
-
-  <% end %>
-
-
+  <div class="paginate">
+  <%= will_paginate @articles, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+  </div>
 </div>
 
